@@ -36,15 +36,10 @@ Getting Started
 
 This project uses Malmo project by Microsoft to provide the Minecraft game environment. Malmo is a platform for Artificial Intelligence experimentation and research built on top of Minecraft. To install and run Malmo platform, see docs on its `GitHub page <https://github.com/Microsoft/malmo>`_. Personally, I recommend using Ubuntu 16.04 64 bit system, with Python 2.7.
 
-We will be using TensorFlow as the main tool for researching deep learning capability. TensorFlow is an open source machine learning framework developed by Google. The latest version is 1.8, and we will start experimenting on this version. Please visit their `website <https://www.tensorflow.org>`_ for installation and more information.
+We will be using TensorFlow as the main tool for researching deep learning capability. TensorFlow is an open source machine learning framework developed by Google. The latest version is 1.8, and we will start experimenting on this version. Please visit their `site <https://www.tensorflow.org>`_ for installation and more information.
 
 
 I am currently working on the first module, i.e. the imitation system. Major inspiration came from this paper: *Third-Person Imitation Learning*, by Bradly Stadie, Pieter Abbel and Ilya Sutskever. You can access this paper on arXiv on this `link <https://arxiv.org/pdf/1703.01703>`_.
-
-.. toctree::
-   :maxdepth: 2
-	install
-	
 
 Indices and tables
 ==================
