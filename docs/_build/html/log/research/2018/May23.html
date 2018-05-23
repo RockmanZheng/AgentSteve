@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Thu May 23 2018 &mdash; AgentSteve  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Change Logs" href="../../change/log_index.html" />
+    <link rel="prev" title="Tue May 22 2018" href="May22.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> AgentSteve
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../dir_structure.html">Directory Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../log_index.html">Research Logs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="May22.html">Tue May 22 2018</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Thu May 23 2018</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coding">Coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#future-works">Future Works</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../change/log_index.html">Change Logs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">AgentSteve</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../log_index.html">Research Logs</a> &raquo;</li>
+        
+      <li>Thu May 23 2018</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/log/research/2018/May23.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="thu-may-23-2018">
+<h1>Thu May 23 2018<a class="headerlink" href="#thu-may-23-2018" title="Permalink to this headline">¶</a></h1>
+<p>Current Progress: Made a draft of training procedure. Still need to prepare data feeds.</p>
+<p>Working Directory: <em>Research/imitate_experiments/001</em></p>
+<p>We made a copy of <em>script01.py</em> to create <em>script02.py</em> and worked on it. This <a class="reference external" href="https://github.com/RockmanZheng/AgentSteve/blob/master/Research/imitate_experiments/001/script02.py">link</a> directs you to the script.</p>
+<p>The proposed training procedure is as follow:</p>
+<ol class="arabic simple">
+<li><em>Pretraining</em>. Train Df and Dr, minimizing Lr, where Lr refers to loss of Dr, the performer discriminator</li>
+<li>Fixed Df, and train Dd to minimize Ld, where Ld refers to loss of Dd, the domain discriminator. The goal of this step is to gain a good Dd.</li>
+<li>Fixed Dd, train Df and Dr, minimizing <span class="math notranslate nohighlight">\(L=L_r-\lambda L_d\)</span>, where <span class="math notranslate nohighlight">\(\lambda&gt;0\)</span> is a hyperparameter. Thus we are minimizing Lr and maximizing Ld all at the same time. Here the goal is to obtain an envioronment agnostic Df and a good Dr based on it.</li>
+<li>Go back to step 2 and repeat until convergence.</li>
+</ol>
+<div class="section" id="coding">
+<h2>Coding<a class="headerlink" href="#coding" title="Permalink to this headline">¶</a></h2>
+<p>Training procedure draft is in <em>script02.py</em>. It can now be executed (with TensorFlow successfully installed) and produce the following graph in <em>model</em> folder (visualized using TensorBoard):</p>
+<img alt="../../../_images/May23_graph.png" src="../../../_images/May23_graph.png" />
+<p>We can use this graph to verify the whole training procedure is constructed as we expected. We will now briefly discussed how we have coded the training graph. To view this graph on TensorBoard, please check this <a class="reference external" href="https://www.tensorflow.org/programmers_guide/summaries_and_tensorboard">page</a> for a quick guide.</p>
+<p>As mentioned above, one of Df, Dr and Dd will be blocked from updating in the training. In TensorFlow’s language, in some phase of training, <em>trainable variables</em> of some component will not be updated through backpropagation. To realize this effect, we will be utilizing the <code class="docutils literal notranslate"><span class="pre">var_list</span></code> signature of the method <code class="docutils literal notranslate"><span class="pre">tf.train.Optimizer.minimize</span></code>. By providing a specific collection of <code class="docutils literal notranslate"><span class="pre">tf.Variable</span></code>’s to <code class="docutils literal notranslate"><span class="pre">var_list</span></code>, we are able to force <code class="docutils literal notranslate"><span class="pre">tf.train.Optimizer.minimize</span></code> to minimize the given loss only by updating those <code class="docutils literal notranslate"><span class="pre">tf.Variable</span></code>’s and leaving others, i.e. other parts of the model unchanged.</p>
+<p>So you will see something like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an Adam optimizer</span>
+<span class="n">adam_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">()</span>
+<span class="c1"># Only updating tf.Variable&#39;s in update_vars when minimizing loss function Loss</span>
+<span class="n">train_op</span> <span class="o">=</span> <span class="n">adam_op</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="n">Loss</span><span class="p">,</span><span class="n">var_list</span> <span class="o">=</span> <span class="n">update_vars</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So back to the training procedure proposed in the begining, in pretraining phase and step 3, we only need to update <code class="docutils literal notranslate"><span class="pre">tf.Variable</span></code>’s in Df and Dr; in step 2, we only need to update <code class="docutils literal notranslate"><span class="pre">tf.Variable</span></code>’s in Dd. In order to retrieve those <code class="docutils literal notranslate"><span class="pre">tf.Variable</span></code>’s of each part, we will be using the property <code class="docutils literal notranslate"><span class="pre">tf.layers.Layer.trainable_variables</span></code> that can give us access to all trainable variables in a particular <code class="docutils literal notranslate"><span class="pre">tf.layers.Layer</span></code>. Thus in <em>script02.py</em>, we construct layers using API of the class <code class="docutils literal notranslate"><span class="pre">tf.layers.Layer</span></code>, instead of their corresponding functional forms. For example, we use <code class="docutils literal notranslate"><span class="pre">tf.layers.Conv3D</span></code> rather than <code class="docutils literal notranslate"><span class="pre">tf.layers.conv3d</span></code>. You can theck this <a class="reference external" href="https://www.tensorflow.org/programmers_guide/low_level_intro#layers">guide</a> for basic usage of <code class="docutils literal notranslate"><span class="pre">tf.layers.Layer</span></code>.</p>
+<p>So you will see something like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of tf.Variable&#39;s that will be passed to var_list</span>
+<span class="n">train_vars</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># A dense layer</span>
+<span class="n">dense_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Must first initialize all variables</span>
+<span class="c1"># Otherwise, dense_layer.trainable_variables will be an empty list</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+<span class="c1"># Add trainable variables to list</span>
+<span class="n">train_vars</span><span class="o">+=</span><span class="n">dense_layer</span><span class="o">.</span><span class="n">trainable_variables</span>
+</pre></div>
+</div>
+<p>One important thing needs to be notified, that before adding trainable variables to list, we must first initialize all variables by running <code class="docutils literal notranslate"><span class="pre">tf.global_variables_initializer()</span></code> in a <code class="docutils literal notranslate"><span class="pre">tf.Seesion</span></code>, as shown above. Otherwise, we would get an empty list, and later no <code class="docutils literal notranslate"><span class="pre">tf.Varialbe</span></code> will be updated!</p>
+<p>With knowledge of above things, we created 3 optimizing operations corresponding 3 training steps, namely <code class="docutils literal notranslate"><span class="pre">pretrain_op</span></code> for pretraining, <code class="docutils literal notranslate"><span class="pre">dd_train_op</span></code> for training domain discriminator Dd, and <code class="docutils literal notranslate"><span class="pre">train_op</span></code> for training environment agnostic feature extractor Df and performer discriminator Dr based on it. After this, we need to run variables initialization <code class="docutils literal notranslate"><span class="pre">tf.global_variables_initializer()</span></code> again to make things work.</p>
+<p>Now we are prepared to run these optimizing operations to train our imitation model by simply calling <code class="docutils literal notranslate"><span class="pre">tf.Session.run</span></code> method.</p>
+</div>
+<div class="section" id="future-works">
+<h2>Future Works<a class="headerlink" href="#future-works" title="Permalink to this headline">¶</a></h2>
+<p>We still need to prepare input data feeds.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../change/log_index.html" class="btn btn-neutral float-right" title="Change Logs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="May22.html" class="btn btn-neutral" title="Tue May 22 2018" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, RockmanZheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
