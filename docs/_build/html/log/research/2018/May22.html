@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tue May 22 2018 &mdash; AgentSteve  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Change Logs" href="../../change/log_index.html" />
+    <link rel="prev" title="Research Logs" href="../log_index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> AgentSteve
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../dir_structure.html">Directory Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../log_index.html">Research Logs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tue May 22 2018</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coding">Coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#future-works">Future Works</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../change/log_index.html">Change Logs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">AgentSteve</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../log_index.html">Research Logs</a> &raquo;</li>
+        
+      <li>Tue May 22 2018</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/log/research/2018/May22.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tue-may-22-2018">
+<h1>Tue May 22 2018<a class="headerlink" href="#tue-may-22-2018" title="Permalink to this headline">¶</a></h1>
+<p>Current progress: working on imitation module.</p>
+<p>I was inspired by this paper <em>Third-Person Imitation Learning</em>, which is available on arXiv. <a class="reference external" href="https://arxiv.org/pdf/1703.01703.pdf">Link</a></p>
+<p>There are 3 important parts in the imitation module, namely Df, Dr, Dd, which are feature extractor, performer discriminator, and domain discriminator, respectively, as mentioned in the paper.</p>
+<p>Images are first sent into Df which will then extract features from them. These features should be domain invariant (environment agnostic). In other words, one cannot tell from where the initial images come solely based on these features.</p>
+<p>The extracted features are then sent into Dd. Dd will classify their source domains. A good Df will output confusing features as discussed above so that a good Dd cannot tell the difference and will give any answer with equal probability.</p>
+<p>The features are also sent into Dr. In fact, features from several time-steps will be sent to introduce temporal information. Dr will then give its judgement about whether it is the expert doing the task, or it is an amateur. The environment agnostic natrue of the features should improve the accuracy of discrimination result.</p>
+<p>We discovered that 3 components need each other and no one can be singled out. Feature extractor Df is neccessary since dealing higher level concept is better than handling raw pixels. Domain discriminator Dd is also needed because we need to force our Df to be domain invariant. And finally, if without Dr, the Df will easily adjust to output constant value to fool Dd, which is clearly not desired. Thus Dr is crucial for training Df to extract meaningful features.</p>
+<p>So we can only implement and test 3 components all at once. If we see them as a new whole integrity then we will feel less pain (:-)</p>
+<div class="section" id="coding">
+<h2>Coding<a class="headerlink" href="#coding" title="Permalink to this headline">¶</a></h2>
+<p>I had stated a new experiment under the directory <em>Research/imitate_experiments</em>, coded 001. And add a few new files, including:</p>
+<ul class="simple">
+<li><em>domain_discriminator.py</em></li>
+<li><em>feature_extractor.py</em></li>
+<li><em>imitateOptimizer.py</em></li>
+<li><em>performer_discriminator.py</em></li>
+<li><em>script01.py</em></li>
+</ul>
+<p>Currently I have made a draft version of algorithm structure in <em>script01.py</em>. It merely outlines all elements that I thought of, and cannot be run. Other files are useless for the moment.</p>
+<p>In <em>script01.py</em> I basically just put some TensorFlow layers API in there, and exposing their function signatures for later development.</p>
+<p>Here is the architecture that I am thinking of.</p>
+<p>First of all, we will need an input layer. We will use video stream to train our imitator instead of simple images. So the input layer would be a 5 dimension tensor, with dimension [batches,depth,height,width,channels]. Here <em>batches</em> refers to the number of training batches, <em>depth</em> is the number of frames. And <em>height</em> and <em>width</em> is the size the our input images. And <em>channels</em> typically equals to 3 for colored images, for example those in RGB or HSI format, and equals to 1 for gray scale images.</p>
+<p>Df, the feature extractor, can be implemented as the first few layers in a neural network based discriminator. So after replicating a simple MINST discriminator (see  this <a class="reference external" href="https://www.tensorflow.org/tutorials/layers">tutorial</a>), we choose the first 4 layers of it to play the role of a feature extractor. Namely:</p>
+<ul class="simple">
+<li>Convolutional layer #1, with ReLU activation</li>
+<li>Max pooling layer #1</li>
+<li>Convolutional layer #2, with ReLU activation</li>
+<li>Max pooling layer #2, also named feature layer, since we are constructing a feature extractor</li>
+</ul>
+<p>Then we will send output of the last layer into both Dd and Dr.</p>
+<p>Dd and Dr, the domain and performer discriminators, will have same structure (at least for now), since they are both classifier and both using output of Df as input. The structure is:</p>
+<ul class="simple">
+<li>Dense layer #1, with ReLU activation</li>
+<li>Dropout layer</li>
+<li>logits layer #2 (dense), with 2 units, outputing logits for 2 classes. For Dd, they represent expert domain and amateur domain. For Dr, they represent expert and amateur.</li>
+</ul>
+<p>Finally we will use sigmoid function to convert logits to values within [0,1), and view them as probability. Probabilities of 2 units should sum up to 1.</p>
+</div>
+<div class="section" id="future-works">
+<h2>Future Works<a class="headerlink" href="#future-works" title="Permalink to this headline">¶</a></h2>
+<p>Training procedure needs to be constructed. And input feed needs to be prepared.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../change/log_index.html" class="btn btn-neutral float-right" title="Change Logs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../log_index.html" class="btn btn-neutral" title="Research Logs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, RockmanZheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

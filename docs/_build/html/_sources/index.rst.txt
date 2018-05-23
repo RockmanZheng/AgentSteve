@@ -7,9 +7,12 @@ Welcome to AgentSteve's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 1
 
+    dir_structure
+    log/research/log_index
+    log/change/log_index
+	
 This project is aimed at constructing an agent in the popular video game Minecraft that is capable of learning, exploring and helping, with the power of deep learning! 
 
 You can fork this project on `GitHub <https://github.com/RockmanZheng/AgentSteve>`_.

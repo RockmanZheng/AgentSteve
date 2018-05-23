@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; AgentSteve  documentation</title>
+  <title>Directory Structure &mdash; AgentSteve  documentation</title>
   
 
   
@@ -28,8 +27,9 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to AgentSteve’s documentation!" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -78,10 +78,8 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="dir_structure.html">Directory Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="log/research/log_index.html">Research Logs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="log/change/log_index.html">Change Logs</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Directory Structure</a></li>
 </ul>
 
             
@@ -127,12 +125,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Directory Structure</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/dir_structure.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -144,11 +144,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="directory-structure">
+<h1>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h1>
+<p>I will not fully describe all funcitions of all directories and files. This should be left to module explanation docs or README file under each directory. Here I will just briefly introduce you to some of the folders and files.</p>
+<ul class="simple">
+<li><em>docs</em>. Directory storing files asscioated with (this) documentations.</li>
+<li><em>Malmo-0.34.0-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7</em>. This is the directory of Malmo platform.</li>
+<li><em>Research</em>. Directory for storing researching codes.</li>
+</ul>
+<p>Under the folder <em>Research</em>, there are 3 folders:</p>
+<ul class="simple">
+<li><em>imitate_experiments</em>. My currently working directory. All experiments involving imitation module are performed in here. All experiments will be recorded in 3 digits code, such as 001, and stored in a folder in the same name.</li>
+<li><em>pygame</em>. The pygame package clone.</li>
+<li><em>third_person_im</em>. A fork of RLLab project, a clone of the third-person imitation learning project by Bradly Stadie, Pieter Abbeel adn Ilya Sutskever. For third-person imitation project, check this <a class="reference external" href="http://github.com/bstadie/third_person_im">link</a>. For RLLab project (which is also under Prof. Abbeel’s name), check <a class="reference external" href="https://github.com/rll/rllab">this</a>. The first project is research oriented, so it is no longer supported. The latter project hasn’t been updated for over 6 months, so it’s pretty rusty and can only be used as reference.</li>
+</ul>
 </div>
 
 
@@ -156,6 +165,13 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to AgentSteve’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
