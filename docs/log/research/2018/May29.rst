@@ -38,7 +38,7 @@ small frame size to obtain low data throughput, so that our system doesn't need
 to handle high pressure of data.
 
 Conclusion
-==========
+----------
 
 The performance of Malmo platform can be speed up by reducing the rendering frame
 size, as large frame is not necessary for learning system.
