@@ -12,7 +12,7 @@ My virtual machine's configuration:
 - OS: Ubuntu 16.04 64bit
 - Memory: 5120MB
 - Display Memory: 128MB
-- 4 CPUs: Intel Core i5-6300HQ @ 2.30GHz
+- 4 CPUs: Intel Core i5-6300HQ at 2.30GHz
 
 Working Directory: *AgentSteve/Malmo-0.34.0-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7*
 
