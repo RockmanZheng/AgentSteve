@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Wed May 23 2018 &mdash; AgentSteve  documentation</title>
+  <title>Tue May 29 2018 &mdash; AgentSteve  documentation</title>
   
 
   
@@ -29,7 +29,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="prev" title="Change Logs" href="../log_index.html" /> 
+    <link rel="next" title="Change Logs" href="../../change/log_index.html" />
+    <link rel="prev" title="Wed May 23 2018" href="May23.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -80,11 +81,14 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../dir_structure.html">Directory Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../research/log_index.html">Research Logs</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../log_index.html">Change Logs</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Wed May 23 2018</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../log_index.html">Research Logs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="May22.html">Tue May 22 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="May23.html">Wed May 23 2018</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tue May 29 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../change/log_index.html">Change Logs</a></li>
 </ul>
 
             
@@ -130,15 +134,15 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../log_index.html">Change Logs</a> &raquo;</li>
+          <li><a href="../log_index.html">Research Logs</a> &raquo;</li>
         
-      <li>Wed May 23 2018</li>
+      <li>Tue May 29 2018</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/log/change/2018/May23.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/log/research/2018/May29.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -151,14 +155,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="wed-may-23-2018">
-<h1>Wed May 23 2018<a class="headerlink" href="#wed-may-23-2018" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tue-may-29-2018">
+<h1>Tue May 29 2018<a class="headerlink" href="#tue-may-29-2018" title="Permalink to this headline">¶</a></h1>
+<p>Last time we ran Malmo on my Ubuntu virtual machine, the frame rate was so slow
+that we could not even see what is going on. So today we enlarged display memory
+capacity to 128M and discovered that the game runs more smoothly. Later we performed
+a render speed test and found that smaller rendering size could result in higher
+frame rate and lower data throughput.</p>
+<p>My virtual machine’s configuration:</p>
 <ul class="simple">
-<li>Initialize project on GitHub.</li>
-<li>Update documentations.</li>
-<li>Add new experiment as <em>Research/imitate_experiments/001/script02.py</em>.</li>
-<li>Add new folder <em>Research/imitate_experiments/model</em> to store model files for visualization with TensorBoard.</li>
+<li>OS: Ubuntu 16.04 64bit</li>
+<li>Memory: 5120MB</li>
+<li>Display Memory: 128MB</li>
+<li>4 CPUs: Intel Core i5-6300HQ &#64; 2.30GHz</li>
 </ul>
+<p>Working Directory: <em>AgentSteve/Malmo-0.34.0-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7</em></p>
+<p>Now, launch the Malmo platform. Under <em>Python_Examples</em> folder, we run the script <em>render_speed_test.py</em> in terminal. Below are the results, we have visualized them
+with charts, where x axis represents different frame size (e.g. 1024 X 768).</p>
+<p>First look at results related with frames.</p>
+<img alt="../../../_images/frames.jpg" src="../../../_images/frames.jpg" />
+<p>In general, as can be seen, as frame size decreases, we will have higher FPS
+and receive more frames. So in our future experiments, we should use a relatively
+small frame size to obtain high FPS, so that the game runs smoothly. And in most
+cases, turning on the offscreen rendering option will result in higher FPS.</p>
+<p>Then let’s look at results related with data throughput.</p>
+<img alt="../../../_images/data.jpg" src="../../../_images/data.jpg" />
+<p>From the picture above, we can discover that as frame size decreases, data throughput
+also decreases, rapidly. So in our later experiments, we should use a relatively
+small frame size to obtain low data throughput, so that our system doesn’t need
+to handle high pressure of data.</p>
+</div>
+<div class="section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<p>The performance of Malmo platform can be speed up by reducing the rendering frame
+size, as large frame is not necessary for learning system.</p>
 </div>
 
 
@@ -169,8 +199,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../../change/log_index.html" class="btn btn-neutral float-right" title="Change Logs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="../log_index.html" class="btn btn-neutral" title="Change Logs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="May23.html" class="btn btn-neutral" title="Wed May 23 2018" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
