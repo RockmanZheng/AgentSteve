@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Wed 6 Jun 2018 &mdash; AgentSteve  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Change Logs" href="../../change/log_index.html" />
+    <link rel="prev" title="Tue May 29 2018" href="May29.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> AgentSteve
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../dir_structure.html">Directory Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../log_index.html">Research Logs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="May22.html">Tue May 22 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="May23.html">Wed May 23 2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="May29.html">Tue May 29 2018</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wed 6 Jun 2018</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started-with-python">Getting Started With Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-support">Windows Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-recording">Video Recording</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../change/log_index.html">Change Logs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">AgentSteve</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../log_index.html">Research Logs</a> &raquo;</li>
+        
+      <li>Wed 6 Jun 2018</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/log/research/2018/Jun6.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wed-6-jun-2018">
+<h1>Wed 6 Jun 2018<a class="headerlink" href="#wed-6-jun-2018" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-started-with-python">
+<h2>Getting Started With Python<a class="headerlink" href="#getting-started-with-python" title="Permalink to this headline">¶</a></h2>
+<p>In order to import module <code class="docutils literal notranslate"><span class="pre">MalmoPython</span></code>, you will need to find the shared library <em>Python_Examples/MalmoPython.so</em> under Malmo project and copy it to your Python’s site package location(s), which can be checked by running</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">site;site.getsitepackages()</span></code></p>
+<p>If you are going to use <code class="docutils literal notranslate"><span class="pre">malmoutils</span></code> as well, please also copy the file <em>Python_Examples/malmoutils.py</em> to your site package directory.</p>
+</div>
+<div class="section" id="windows-support">
+<h2>Windows Support<a class="headerlink" href="#windows-support" title="Permalink to this headline">¶</a></h2>
+<p>Malmo seems to be not supporting Windows system very well yet. In fact, it seems that Minecraft mod development on Linux is the main stream. For more information, check <em>Minecraft Coder Pack</em>, and <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge</a>.</p>
+<p>Remark: Malmo project is built upon Minecrft Forge.</p>
+</div>
+<div class="section" id="video-recording">
+<h2>Video Recording<a class="headerlink" href="#video-recording" title="Permalink to this headline">¶</a></h2>
+<p>First you can check <em>Research/explore_experiments/001/script01.py</em>.</p>
+<p>I used <code class="docutils literal notranslate"><span class="pre">VideoProducer</span></code> to specify output frames to be the size of 256x256. And use the API <code class="docutils literal notranslate"><span class="pre">MalmoPython.MissionRecordSpec.recordMP4</span></code> to specify we want to record video into MP4 format.</p>
+<p>Run <em>script01.py</em> with arguments as:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python script01.py --record_video --recording_dir<span class="o">=</span>mission_records
+</pre></div>
+</div>
+<p>The first argument <code class="docutils literal notranslate"><span class="pre">record_video</span></code> tells Malmo to record video. The second argument <code class="docutils literal notranslate"><span class="pre">recording_dir</span></code> specify in which directory we store our records. While running mission, Malmo will temporarily store all records including video records under a folder named <code class="docutils literal notranslate"><span class="pre">mission_records</span></code>. After the mission is completed, Malmo will compress all the records and store it to destination specified by API <code class="docutils literal notranslate"><span class="pre">MalmoPython.MissionRecordSpec.setDestination</span></code>. In <em>script01.py</em> we set destination to be <em>mission_records/Mission_1.tgz</em>.</p>
+<p>After a mission is completed, we decompress <em>mission_records/Mission_1.tgz</em> and play video record to review the mission.</p>
+<p>We discovered that in first person view, the hotbar slots and hands of our agent <strong>did not</strong> get recorded into video. So we may need to allow the agent to observe the game in third person view to better let it understand the world.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../change/log_index.html" class="btn btn-neutral float-right" title="Change Logs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="May29.html" class="btn btn-neutral" title="Tue May 29 2018" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, RockmanZheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
