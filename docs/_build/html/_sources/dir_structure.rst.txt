@@ -12,7 +12,8 @@ Under the folder *Research*, there are 3 folders:
 
 * *imitate_experiments*. My currently working directory. All experiments involving imitation module are performed in here. All experiments will be recorded in 3 digits code, such as 001, and stored in a folder in the same name.
 * *explore_experiments*. My second currently working directory. Experiments relating exploring module happens here.
-* *third_person_im*. A fork of RLLab project, a clone of the third-person imitation learning project by Bradly Stadie, Pieter Abbeel adn Ilya Sutskever. For third-person imitation project, check this `link <http://github.com/bstadie/third_person_im>`_. For RLLab project (which is also under Prof. Abbeel's name), check `this <https://github.com/rll/rllab>`_. The first project is research oriented, so it is no longer supported. The latter project hasn't been updated for over 6 months, so it's pretty rusty and can only be used as reference.
+
+.. * *third_person_im*. A fork of RLLab project, a clone of the third-person imitation learning project by Bradly Stadie, Pieter Abbeel adn Ilya Sutskever. For third-person imitation project, check this `link <http://github.com/bstadie/third_person_im>`_. For RLLab project (which is also under Prof. Abbeel's name), check `this <https://github.com/rll/rllab>`_. The first project is research oriented, so it is no longer supported. The latter project hasn't been updated for over 6 months, so it's pretty rusty and can only be used as reference.
 
 .. * *pygame*. The pygame package clone.
 
