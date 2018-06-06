@@ -1,1 +1,0 @@
-Moved to github. https://github.com/pygame/pygame/
