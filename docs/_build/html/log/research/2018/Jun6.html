@@ -165,7 +165,9 @@
 <div class="section" id="getting-started-with-python">
 <h2>Getting Started With Python<a class="headerlink" href="#getting-started-with-python" title="Permalink to this headline">¶</a></h2>
 <p>In order to import module <code class="docutils literal notranslate"><span class="pre">MalmoPython</span></code>, you will need to find the shared library <em>Python_Examples/MalmoPython.so</em> under Malmo project and copy it to your Python’s site package location(s), which can be checked by running</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">site;site.getsitepackages()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">site</span><span class="p">;</span><span class="n">site</span><span class="o">.</span><span class="n">getsitepackages</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>If you are going to use <code class="docutils literal notranslate"><span class="pre">malmoutils</span></code> as well, please also copy the file <em>Python_Examples/malmoutils.py</em> to your site package directory.</p>
 </div>
 <div class="section" id="windows-support">

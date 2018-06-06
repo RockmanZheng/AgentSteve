@@ -5,7 +5,9 @@ Getting Started With Python
 ---------------------------
 In order to import module ``MalmoPython``, you will need to find the shared library *Python_Examples/MalmoPython.so* under Malmo project and copy it to your Python's site package location(s), which can be checked by running
 
-``import site;site.getsitepackages()``
+.. code-block:: python
+
+    import site;site.getsitepackages()
 
 If you are going to use ``malmoutils`` as well, please also copy the file *Python_Examples/malmoutils.py* to your site package directory.
 
