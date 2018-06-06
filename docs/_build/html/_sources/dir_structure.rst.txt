@@ -8,7 +8,7 @@ I will not fully describe all funcitions of all directories and files. This shou
 
 .. * *Malmo-0.34.0-Linux-Ubuntu-16.04-64bit_withBoost_Python2.7*. This is the directory of Malmo platform.
 
-Under the folder *Research*, there are 3 folders:
+Under the folder *Research*, there are 2 folders:
 
 * *imitate_experiments*. My currently working directory. All experiments involving imitation module are performed in here. All experiments will be recorded in 3 digits code, such as 001, and stored in a folder in the same name.
 * *explore_experiments*. My second currently working directory. Experiments relating exploring module happens here.
