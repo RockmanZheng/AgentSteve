@@ -1,16 +1,24 @@
 Thu 7 Jun 2018
 ==============
-record video streams as individual frames rather than video - eg ``MalmoPython.MissionSpec.recordBitmaps(MalmoPython.FrameType.DEPTH_MAP)``.
-
-But this API seems to be not working.
+record video streams as individual frames rather than video - eg ``MalmoPython.MissionSpec.recordBitmaps(MalmoPython.FrameType.DEPTH_MAP)``. But this API seems to be not working.
 
 From `Malmo/src/MissionRecordSpec.h <https://github.com/Microsoft/malmo/blob/master/Malmo/src/MissionRecordSpec.h>`_ on Malmo's GitHub page, bitmaps and MP4 cannot both be recorded for a given video producer.
 
-After checking what `frame types <https://github.com/Microsoft/malmo/blob/master/Malmo/src/TimestampedVideoFrame.h>`_ Malmo defined, I tried the type ``VIDEO``, and things run successfully. Frames are recorded in `ppm <http://netpbm.sourceforge.net/doc/ppm.html>`_ format, which can be processed in a very straightforward way (but this is also a highly inefficient format). For the record, 
+After checking what `frame types <https://github.com/Microsoft/malmo/blob/master/Malmo/src/TimestampedVideoFrame.h>`_ Malmo defined, I tried the type ``VIDEO``, and things run successfully. That is, I used ``MalmoPython.MissionSpec.recordBitmaps(MalmoPython.FrameType.VIDEO)``
+
+Frames are recorded in `ppm <http://netpbm.sourceforge.net/doc/ppm.html>`_ format, which can be processed in a very straightforward way (but this is also a highly inefficient format). 
+
+You can find *Research/explore_experiments/001/script02.py* and under that directory, run:
+
+.. code-block:: shell
+
+    python script02.py --record_video --recording_dir=mission_records
+
+Then you will find all recordings including frames in *mission_records/* folder.
 
 Intelligence System
 -------------------
-I am going to seperate intelligence system, which plays the role of brain for our agent, from Malmo. The working relationship between Minecraft, Malmo and this system can be summarize as the following flowchart:
+I am going to seperate intelligence system, which plays the role of brain for our agent, from Malmo. The working relationship between Minecraft, Malmo and this system can be summarized as in the following flowchart:
 
 .. image:: img/system01.jpg
 

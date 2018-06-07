@@ -165,10 +165,15 @@
             
   <div class="section" id="thu-7-jun-2018">
 <h1>Thu 7 Jun 2018<a class="headerlink" href="#thu-7-jun-2018" title="Permalink to this headline">¶</a></h1>
-<p>record video streams as individual frames rather than video - eg <code class="docutils literal notranslate"><span class="pre">MalmoPython.MissionSpec.recordBitmaps(MalmoPython.FrameType.DEPTH_MAP)</span></code>.</p>
-<p>But this API seems to be not working.</p>
+<p>record video streams as individual frames rather than video - eg <code class="docutils literal notranslate"><span class="pre">MalmoPython.MissionSpec.recordBitmaps(MalmoPython.FrameType.DEPTH_MAP)</span></code>. But this API seems to be not working.</p>
 <p>From <a class="reference external" href="https://github.com/Microsoft/malmo/blob/master/Malmo/src/MissionRecordSpec.h">Malmo/src/MissionRecordSpec.h</a> on Malmo’s GitHub page, bitmaps and MP4 cannot both be recorded for a given video producer.</p>
-<p>After checking what <a class="reference external" href="https://github.com/Microsoft/malmo/blob/master/Malmo/src/TimestampedVideoFrame.h">frame types</a> Malmo defined, I tried the type <code class="docutils literal notranslate"><span class="pre">VIDEO</span></code>, and things run successfully. Frames are recorded in <a class="reference external" href="http://netpbm.sourceforge.net/doc/ppm.html">ppm</a> format, which can be processed in a very straightforward way (but this is also a highly inefficient format). For the record,</p>
+<p>After checking what <a class="reference external" href="https://github.com/Microsoft/malmo/blob/master/Malmo/src/TimestampedVideoFrame.h">frame types</a> Malmo defined, I tried the type <code class="docutils literal notranslate"><span class="pre">VIDEO</span></code>, and things run successfully. That is, I used <code class="docutils literal notranslate"><span class="pre">MalmoPython.MissionSpec.recordBitmaps(MalmoPython.FrameType.VIDEO)</span></code></p>
+<p>Frames are recorded in <a class="reference external" href="http://netpbm.sourceforge.net/doc/ppm.html">ppm</a> format, which can be processed in a very straightforward way (but this is also a highly inefficient format).</p>
+<p>You can find <em>Research/explore_experiments/001/script02.py</em> and under that directory, run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python script02.py --record_video --recording_dir<span class="o">=</span>mission_records
+</pre></div>
+</div>
+<p>Then you will find all recordings including frames in <em>mission_records/</em> folder.</p>
 <div class="section" id="intelligence-system">
 <h2>Intelligence System<a class="headerlink" href="#intelligence-system" title="Permalink to this headline">¶</a></h2>
 <p>I am going to seperate intelligence system, which plays the role of brain for our agent, from Malmo. The working relationship between Minecraft, Malmo and this system can be summarize as the following flowchart:</p>
