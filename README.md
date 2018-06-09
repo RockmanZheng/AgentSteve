@@ -23,5 +23,16 @@ This project uses Malmo project by Microsoft to provide the Minecraft game envir
 
 We will be using TensorFlow as the main tool for researching deep learning capability. TensorFlow is an open source machine learning framework developed by Google. The latest version is 1.8, and we will start experimenting on this version. Please visit their [site](https://www.tensorflow.org) for installation and more information.
 
-
 I am currently working on the first module, i.e. the imitation system. Major inspiration came from this paper: *Third-Person Imitation Learning*, by Bradly Stadie, Pieter Abbel and Ilya Sutskever. You can access this paper on arXiv on this [link](https://arxiv.org/pdf/1703.01703).
+
+## Please Contribute And Welcome Collaborate
+To contribute, you can:
+- Fork this project to your GitHub account
+- clone your fork to your machine by runing
+```
+git clone https://github.com/YourAccount/AgentSteve.git --depth 1
+```
+where the ``depth`` option is to avoid cloning all history of the repo, which would be time consuming to download.
+- Research on your ideas on your repo!
+- If you want me to merge your work, please click **New Pull Request** button on my repo and tell me you want to contribute
+- Then wait for my response
